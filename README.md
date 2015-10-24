@@ -20,8 +20,66 @@ composer require ejimba/africas-talking-gateway
 
 ## Usage
 
+If you are using a framework that has autoloading:
+
 ```php
 <?php
+
+use AfricasTalkingGateway\AfricasTalkingGateway;
+
+// Specify your login credentials
+$username   = "MyAfricasTalkingUsername";
+$apikey     = "MyAfricasTalkingAPIKey";
+
+// Specify the numbers that you want to send to in a comma-separated list
+// Please ensure you include the country code (+254 for Kenya in this case)
+$recipients = "+254711XXXYYY,+254733YYYZZZ";
+
+// And of course we want our recipients to know what we really do
+$message    = "I'm a lumberjack and its ok, I sleep all night and I work all day";
+
+// Create a new instance of the gateway class
+$gateway    = new AfricasTalkingGateway($username, $apikey);
+
+// Any gateway error will be captured by the custom Exception class below, 
+// so wrap the call in a try-catch block
+try 
+{
+
+    $results = $gateway->sendMessage($recipients, $message);
+            
+    foreach( $results as $result ) {
+    
+        // status is either "Success" or "error message"
+        echo " Number: " .$result->number;
+        echo " Status: " .$result->status;
+        echo " MessageId: " .$result->messageId;
+        echo " Cost: "   .$result->cost."\n";
+    
+    }
+
+}
+catch ( AfricasTalkingGatewayException $e )
+{
+
+    echo "Encountered an error while sending: ".$e->getMessage();
+
+}
+
+?>
+```
+
+If you are using flat php scripts, please remember to require autoloader
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+```
+The example above will be:
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
 
 use AfricasTalkingGateway\AfricasTalkingGateway;
 
