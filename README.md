@@ -69,7 +69,7 @@ catch ( AfricasTalkingGatewayException $e )
 
 ## Bugs and Issues
 
-Bugs and issues are tracked on [GitHub](https://github.com/ejimba/aficas-talking-gateway/issues)
+Bugs and issues are tracked on [GitHub](https://github.com/ejimba/africas-talking-gateway/issues)
 
 ## License
 
