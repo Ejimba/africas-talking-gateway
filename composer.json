@@ -1,0 +1,25 @@
+{
+    "name": "ejimba/africas-talking-gateway",
+    "description": "Unofficial Africas Talking Gateway for PHP",
+    "keywords": ["africa", "talking", "gateway", "sms", "ussd", "voice", "api", "php", "kenya"],
+    "license": "proprietary",
+    "homepage" : "https://www.africastalking.com/",
+    "authors": [
+        {
+            "name": "Ejimba Eric",
+            "email": "ejimba@gmail.com",
+            "homepage": "http://www.ejimbaeric.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "AfricasTalkingGateway\\": "src/AfricasTalkingGateway"
+        }
+    },
+    "minimum-stability": "stable"
+}
